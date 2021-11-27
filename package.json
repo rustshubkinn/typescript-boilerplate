@@ -26,6 +26,8 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
     "prettier": "^2.5.0",
     "stylelint": "^14.1.0",
     "stylelint-config-prettier": "^9.0.3",
@@ -37,6 +39,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "precommit": "lint-staged",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "prettier:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "stylelint:check": "stylelint \"src/**/*.css\"",
@@ -92,5 +96,20 @@
         ]
       }
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint",
+      "prettier --check",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --check",
+      "git add"
+    ],
+    "*.css": [
+      "stylelint",
+      "git add"
+    ]
   }
 }
