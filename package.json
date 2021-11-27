@@ -130,6 +130,9 @@
     ],
     "*.css": [
       "stylelint"
+    ],
+    "*.html": [
+      "prettier --check"
     ]
   }
 }
