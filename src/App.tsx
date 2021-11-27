@@ -1,1 +1,1 @@
-export const App = () => <div />;
+export const App: React.FC = () => <div />;
